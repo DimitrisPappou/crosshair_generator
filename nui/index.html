@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="javascript/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div id="crosshair-menu">
+        <div id="settings">
+
+            <!-- Alpha 0-255 -->
+            <p>Alpha</p>
+            <div id="flex-group">
+                <input type="range" min="0" max="255" value="200" class="slider" id="alpha-slider" step="1">
+                <div id="buttons">
+                    <button class="adjust-button" onclick="adjustSlider('alpha-slider', 1)">▲</button>
+                    <button class="adjust-button" onclick="adjustSlider('alpha-slider', -1)">▼</button>
+                </div>
+                <span id="alpha-value">200</span>
+            </div>
+            
+            <!-- Thickness 0-100, going up by 0.5 -->
+            <p>Thickness</p>
+            <div id="flex-group">
+                <input type="range" min="0" max="100" value="0.5" class="slider" id="thickness-slider" step="0.5">
+                <div id="buttons">
+                    <button class="adjust-button" onclick="adjustSlider('thickness-slider', 1)">▲</button>
+                    <button class="adjust-button" onclick="adjustSlider('thickness-slider', -1)">▼</button>
+                </div>
+                <span id="thickness-value">0.5</span>
+            </div>
+
+            <!-- Size 0-100 -->
+            <p>Size</p>
+            <div id="flex-group">
+                <input type="range" min="0" max="100" value="5" class="slider" id="size-slider" step="1">
+                <div id="buttons">
+                    <button class="adjust-button" onclick="adjustSlider('size-slider', 1)">▲</button>
+                    <button class="adjust-button" onclick="adjustSlider('size-slider', -1)">▼</button>
+                </div>
+                <span id="size-value">5</span>
+            </div>
+
+            <!-- Gap -100-100 -->
+            <p>Gap</p>
+            <div id="flex-group">
+                <input type="range" min="-100" max="100" value="0" class="slider" id="gap-slider" step="1">
+                <div id="buttons">
+                    <button class="adjust-button" onclick="adjustSlider('gap-slider', 1)">▲</button>
+                    <button class="adjust-button" onclick="adjustSlider('gap-slider', -1)">▼</button>
+                </div>
+                <span id="gap-value">0</span>
+            </div>
+
+            <!-- Outline 0-3 -->
+            <p>Outline</p>
+            <div id="flex-group">
+                <input type="range" min="0" max="3" value="0" class="slider" id="outline-slider" step="1">
+                <div id="buttons">
+                    <button class="adjust-button" onclick="adjustSlider('outline-slider', 1)">▲</button>
+                    <button class="adjust-button" onclick="adjustSlider('outline-slider', -1)">▼</button>
+                </div>
+                <span id="outline-value">0</span>
+            </div>
+
+            <div id="flex-group">
+                <!-- Color -->
+                <p>Color</p>
+                <!-- Choose color instantly from a horizontal list: Green, Yellow, Blue, Cyan, Custom (when custom allow the RGB below to be used) -->
+                <select id="color-select">
+                    <option value="green">Green</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="blue">Blue</option>
+                    <option value="cyan">Cyan</option>
+                    <option value="custom">Custom</option>
+                </select>
+            </div>
+
+            <!-- RGB 0-255 -->
+            <br>
+            <div id="flex-group">
+                <!-- Red -->
+                <input type="range" min="0" max="255" value="0" class="slider" id="red-slider" step="1">
+                <div id="buttons">
+                    <button class="adjust-button" onclick="adjustSlider('red-slider', 1)">▲</button>
+                    <button class="adjust-button" onclick="adjustSlider('red-slider', -1)">▼</button>
+                </div>
+                <span id="red-value">255</span>
+            </div>
+
+            <br>
+            <div id="flex-group">
+                <!-- Green -->
+                <input type="range" min="0" max="255" value="255" class="slider" id="green-slider" step="1">
+                <div id="buttons">
+                    <button class="adjust-button" onclick="adjustSlider('green-slider', 1)">▲</button>
+                    <button class="adjust-button" onclick="adjustSlider('green-slider', -1)">▼</button>
+                </div>
+                <span id="green-value">255</span>
+            </div>
+            
+            <br>
+            <div id="flex-group">
+                <!-- Blue -->
+                <input type="range" min="0" max="255" value="0" class="slider" id="blue-slider" step="1">
+                <div id="buttons">
+                    <button class="adjust-button" onclick="adjustSlider('blue-slider', 1)">▲</button>
+                    <button class="adjust-button" onclick="adjustSlider('blue-slider', -1)">▼</button>
+                </div>
+                <span id="blue-value">255</span>
+            </div>
+            <!-- Dot -->
+            <p>Dot <input type="checkbox" id="dot-checkbox"></p>
+
+            <!-- Done -->
+            <button id="done-button" onclick="CloseMenu()">Done</button>
+        </div>
+        <div id="crosshair-preview">
+            <canvas id="crosshairCanvas" width="400" height="400"></canvas>
+        </div>
+    </div>
+</body>
+</html>
